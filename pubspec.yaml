@@ -19,6 +19,8 @@ dependencies:
   retrofit: ^4.7.2
   retrofit_generator: ^10.0.4
   build_runner: ^2.8.0
+  json_serializable: ^6.11.1
+  json_annotation: ^4.9.0
   flutter_bloc: ^9.1.1
   get_it: ^8.2.0
   pretty_dio_logger: ^1.4.0
@@ -27,6 +29,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_switch: ^0.3.2
   flutter_native_splash: ^2.4.6
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -50,19 +53,11 @@ flutter:
   assets:
     - assets/fonts/Inter/
     - assets/images/
+    - assets/svgs/icons/
+    - assets/svgs/images/
 
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
+ 
   fonts:
     - family: Inter
       fonts:

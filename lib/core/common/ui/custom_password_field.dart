@@ -4,11 +4,12 @@ import 'package:laza_app/core/theme/app_text_style.dart';
 class CustomPasswordField extends StatefulWidget {
   final TextEditingController? controller;
   final String hintText;
+  final String? Function(String?)? validator;
 
   const CustomPasswordField({
     super.key,
     this.controller,
-    this.hintText = "Enter your password",
+    this.hintText = "Enter your password", this.validator,
   });
 
   @override
@@ -55,6 +56,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
       controller: widget.controller,
       style: AppTextStyle.font600Medium15Inter,
       obscureText: true,
+      validator: widget.validator,
       onChanged: _checkPasswordStrength,
       decoration: InputDecoration(
         hintText: widget.hintText,
