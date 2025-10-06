@@ -36,15 +36,15 @@ class LoginView extends StatelessWidget {
               ForgetPasswordWidget(),
               SizedBox(height: 10.h),
               RememberMeWidget(),
-              const Spacer(),
+              SizedBox(height: 40.h),
               TermWidget(),
-              SizedBox(height: 20.h),
-              CustomButton(title: 'Login'),
-              SizedBox(height: 30.h),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: CustomButton(title: 'Login',onTab: () {
+        
+      },),
     );
   }
 }

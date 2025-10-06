@@ -46,4 +46,11 @@ class AppTextStyle {
     fontWeight: FontWeightManager.regular,
     fontFamily: Fonts.inter,
   );
+
+  static TextStyle fontWhite17Inter = TextStyle(
+    color: ColorManager.primaryWhite,
+    fontSize: 20.sp,
+    fontWeight: FontWeightManager.semiBold,
+    fontFamily: Fonts.inter,
+  );
 }
