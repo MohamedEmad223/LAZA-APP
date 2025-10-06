@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:laza_app/config/routes/app_routes.dart';
+import 'package:laza_app/config/routes/routes.dart';
+
+class LazaApp extends StatelessWidget {
+  const LazaApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.login,
+      onGenerateRoute: AppRouter().onGenerateRoute,
+    );
+  }
+}
