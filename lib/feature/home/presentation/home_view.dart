@@ -8,8 +8,8 @@ import 'package:laza_app/feature/home/presentation/widgets/lable_row_widget.dart
 import 'package:laza_app/feature/home/presentation/widgets/product_grid_view_widget.dart';
 import 'package:laza_app/feature/home/presentation/widgets/search_field.dart';
 
-class HomwView extends StatelessWidget {
-  const HomwView({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {

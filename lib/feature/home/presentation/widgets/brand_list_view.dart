@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laza_app/core/utils/app_images.dart';
 import 'package:laza_app/feature/home/presentation/widgets/brand_item.dart';
 
 class BrandListView extends StatelessWidget {
@@ -12,10 +13,10 @@ class BrandListView extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: const [
-          BrandItem(image: 'assets/images/Adidas.png', name: 'Adidas'),
-          BrandItem(image: 'assets/images/Vector.png', name: 'Nike'),
-          BrandItem(image: 'assets/images/fila-9 1.png', name: 'Fila'),
-          BrandItem(image: 'assets/images/Vector (1).png', name: 'Puma'),
+          BrandItem(image: AppImages.adidas, name: 'Adidas'),
+          BrandItem(image: AppImages.nike, name: 'Nike'),
+          BrandItem(image: AppImages.fila, name: 'Fila'),
+          BrandItem(image: AppImages.puma, name: 'Puma'),
         ],
       ),
     );

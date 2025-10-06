@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laza_app/core/utils/app_images.dart';
 import 'package:laza_app/feature/home/presentation/widgets/product_item.dart';
 
 class ProductGridViewWidget extends StatelessWidget {
@@ -18,7 +19,7 @@ class ProductGridViewWidget extends StatelessWidget {
       itemCount: 4,
       itemBuilder: (context, index) {
         return const ProductItem(
-          image: 'assets/images/Rectangle 569.png',
+          image: AppImages.person,
           title: 'Nike Sportswear Club Fleece',
           price: 99,
         );
