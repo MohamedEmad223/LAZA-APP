@@ -13,7 +13,7 @@ class LazaApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.login,
+        initialRoute: Routes.signUp,
         onGenerateRoute: AppRouter().onGenerateRoute,
       ),
     );
