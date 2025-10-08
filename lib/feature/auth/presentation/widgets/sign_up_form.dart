@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laza_app/config/cache/cache_helper.dart';
 import 'package:laza_app/core/common/ui/custom_button.dart';
 import 'package:laza_app/core/common/ui/custom_password_field.dart';
 import 'package:laza_app/core/common/ui/custom_text_field.dart';
@@ -8,6 +9,8 @@ import 'package:laza_app/core/common/ui/text_feild_lable.dart';
 import 'package:laza_app/core/error/messages/validation_error_messages.dart';
 import 'package:laza_app/feature/auth/cubit/cubit/auth_cubit.dart';
 import 'package:laza_app/feature/auth/data/models/signup_body_model.dart';
+import 'package:laza_app/feature/auth/presentation/view/login_view.dart';
+import 'package:laza_app/feature/auth/presentation/widgets/im_line_action_text.dart';
 import 'package:laza_app/feature/auth/presentation/widgets/remember_me_widget.dart';
 import 'package:laza_app/feature/auth/presentation/widgets/sign_up_bloc_listener.dart';
 
@@ -61,13 +64,33 @@ class _SignUpFormState extends State<SignUpForm> {
             validator: (lastName) =>
                 ValidationErrorTexts.nameValidation(lastName),
           ),
-          SizedBox(height: 40.h),
+          SizedBox(height: 30.h),
           RememberMeWidget(),
-          SizedBox(height: 60.h),
+          SizedBox(height: 20.h),
+          InlineActionText(
+            leadingText: 'Are you have Email',
+            actionText: 'Log In',
+            onActionTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return LoginView();
+                },
+              ),
+            ),
+          ),
+          SizedBox(height: 20.h),
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
-              return CustomButton(isLoading: state is SignUpLoading,title: "Sign Up", onTab: () {
-                if (formKey.currentState!.validate()) {
+              return CustomButton(
+                isLoading: state is SignUpLoading,
+                title: "Sign Up",
+                onTab: () {
+                  CacheHelper.setSecureString(
+                    key: 'email',
+                    value: emailController.text,
+                  );
+                  if (formKey.currentState!.validate()) {
                     context.read<AuthCubit>().signUp(
                       SignupBodyModel(
                         email: emailController.text,
@@ -77,10 +100,11 @@ class _SignUpFormState extends State<SignUpForm> {
                       ),
                     );
                   }
-              });
+                },
+              );
             },
           ),
-          SignUpBlocListener()
+          SignUpBlocListener(),
         ],
       ),
     );

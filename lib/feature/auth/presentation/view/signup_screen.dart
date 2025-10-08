@@ -15,7 +15,8 @@ class SignupView extends StatelessWidget {
     return BlocProvider(
       create: (context) => AuthCubit(
         loginRepository: getIt(),
-        signupRepository: getIt()
+        signupRepository: getIt(),
+        verfiyEmailRepo: getIt(),
       ),
       child: Scaffold(
         backgroundColor: Colors.white,

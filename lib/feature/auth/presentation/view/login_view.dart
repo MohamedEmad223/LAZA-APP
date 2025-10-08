@@ -15,6 +15,7 @@ class LoginView extends StatelessWidget {
       create: (context) => AuthCubit(
         loginRepository: getIt(),
         signupRepository: getIt(),
+        verfiyEmailRepo: getIt(),
       ),
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -25,8 +26,6 @@ class LoginView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20.h),
-                  BackButton(),
                   SizedBox(height: 40.h),
                   WelcomText(),
                   SizedBox(height: 40.h),

@@ -28,4 +28,18 @@ final class SignUpFailure extends AuthState {
   SignUpFailure(this.error);
 }
 
+final class VerifyEmailLoading extends AuthState {}
+
+final class VerifyEmailSuccess extends AuthState {
+  final String message;
+
+  VerifyEmailSuccess(this.message);
+}
+
+final class VerifyEmailFailure extends AuthState {
+  final ApiErrorModel error;
+
+  VerifyEmailFailure(this.error);
+}
+
 
