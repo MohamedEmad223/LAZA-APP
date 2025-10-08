@@ -23,8 +23,8 @@ class ValidationErrorTexts {
     if (field == null || field.isEmpty) {
       return 'Please enter OTP';
     }
-    if (field.length < 4) {
-      return 'OTP must be 4 digits';
+    if (field.length < 6) {
+      return 'OTP must be 6 digits';
     }
     return null;
   }

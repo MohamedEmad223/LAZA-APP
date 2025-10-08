@@ -9,10 +9,9 @@ class CacheHelper {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  static Future<void> set({
-    required String key,
-    required dynamic value,
-  }) async {
+  // ---------------------- SharedPreferences ----------------------
+
+  static Future<void> set({required String key, required dynamic value}) async {
     if (value is String) {
       await _prefs.setString(key, value);
     } else if (value is int) {
@@ -28,33 +27,18 @@ class CacheHelper {
     }
   }
 
-  static String? getString({required String key}) {
-    return _prefs.getString(key);
-  }
+  static String? getString({required String key}) => _prefs.getString(key);
+  static bool? getBool({required String key}) => _prefs.getBool(key);
+  static int? getInt({required String key}) => _prefs.getInt(key);
+  static double? getDouble({required String key}) => _prefs.getDouble(key);
+  static List<String>? getStringList({required String key}) =>
+      _prefs.getStringList(key);
 
-  static bool? getBool({required String key}) {
-    return _prefs.getBool(key);
-  }
+  static Future<bool> delete({required String key}) async =>
+      await _prefs.remove(key);
+  static Future<bool> clearAllData() async => await _prefs.clear();
 
-  static int? getInt({required String key}) {
-    return _prefs.getInt(key);
-  }
-
-  static double? getDouble({required String key}) {
-    return _prefs.getDouble(key);
-  }
-
-  static List<String>? getStringList({required String key}) {
-    return _prefs.getStringList(key);
-  }
-
-  static Future<bool> delete({required String key}) async {
-    return await _prefs.remove(key);
-  }
-
-  static Future<bool> clearAllData() async {
-    return await _prefs.clear();
-  }
+  // ---------------------- Secure Storage ----------------------
 
   static Future<void> setSecureData({
     required String key,
@@ -63,16 +47,31 @@ class CacheHelper {
     await _storage.write(key: key, value: value);
   }
 
-  static Future<String?> getSecureData({required String key}) async {
-    return await _storage.read(key: key);
+  static Future<String?> getSecureData({required String key}) {
+    return _storage.read(key: key);
   }
 
- static Future<void> deleteSecureData({required String key}) async {
-    return await _storage.delete(key: key);
+  static Future<void> deleteSecureData({required String key}) async {
+    await _storage.delete(key: key);
   }
 
   static Future<void> deleteAllSecureData() async {
-    return await _storage.deleteAll();
+    await _storage.deleteAll();
   }
 
+  // ✅ دالة عامة لحفظ String في Secure Storage
+  static Future<void> setSecure({
+    required String key,
+    required String value,
+  }) async {
+    await _storage.write(key: key, value: value);
+  }
+
+  static void setSecureString({required String key, required String value}) {
+    _storage.write(key: key, value: value);
+  }
+
+  static  getSecureString({required String key}) {
+    _storage.read(key: key);
+  }
 }

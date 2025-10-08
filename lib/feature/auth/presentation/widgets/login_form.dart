@@ -8,7 +8,9 @@ import 'package:laza_app/core/common/ui/text_feild_lable.dart';
 import 'package:laza_app/core/error/messages/validation_error_messages.dart';
 import 'package:laza_app/feature/auth/cubit/cubit/auth_cubit.dart';
 import 'package:laza_app/feature/auth/data/models/login_body_model.dart';
+import 'package:laza_app/feature/auth/presentation/view/signup_screen.dart';
 import 'package:laza_app/feature/auth/presentation/widgets/forget_password_widget.dart';
+import 'package:laza_app/feature/auth/presentation/widgets/im_line_action_text.dart';
 import 'package:laza_app/feature/auth/presentation/widgets/login_bloc_listener.dart';
 import 'package:laza_app/feature/auth/presentation/widgets/remember_me_widget.dart';
 import 'package:laza_app/feature/auth/presentation/widgets/term_widget.dart';
@@ -36,8 +38,7 @@ class _LoginFormState extends State<LoginForm> {
           CustomTextField(
             hintText: 'Enter your UserName',
             controller: emailController,
-            validator: (email) =>
-                ValidationErrorTexts.emailValidation(email),
+            validator: (email) => ValidationErrorTexts.emailValidation(email),
           ),
           SizedBox(height: 25.h),
           TextFeildLable(lable: 'Password'),
@@ -50,6 +51,19 @@ class _LoginFormState extends State<LoginForm> {
           ForgetPasswordWidget(),
           SizedBox(height: 10.h),
           RememberMeWidget(),
+          SizedBox(height: 50.h),
+          InlineActionText(
+            leadingText: 'Are you have not Email',
+            actionText: 'Sign Up',
+            onActionTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return SignupView();
+                },
+              ),
+            ),
+          ),
           SizedBox(height: 40.h),
           TermWidget(),
           SizedBox(height: 20.h),
@@ -75,5 +89,12 @@ class _LoginFormState extends State<LoginForm> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }
