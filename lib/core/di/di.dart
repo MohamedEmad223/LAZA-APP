@@ -7,6 +7,8 @@ import 'package:laza_app/feature/auth/data/repo/verfiy_email_repo.dart';
 import 'package:laza_app/feature/auth/data/services/login_services.dart';
 import 'package:laza_app/feature/auth/data/services/signup_services.dart';
 import 'package:laza_app/feature/auth/data/services/verfiy_email.dart';
+import 'package:laza_app/feature/home/data/repo/products_repo.dart';
+import 'package:laza_app/feature/home/data/services/products_services.dart';
 
 
 final getIt = GetIt.instance;
@@ -30,5 +32,11 @@ _setupAuth(){
   /// verfiy Email
     getIt.registerSingleton<VerfiyEmailServices>(VerfiyEmailServices(getIt()));
   getIt.registerSingleton<VerfiyEmailRepo>(VerfiyEmailRepo(verfiyEmailServices: getIt()));
+
+  /// products
+      getIt.registerSingleton<ProductsService>(ProductsService(getIt()));
+        getIt.registerSingleton<ProductsRepo>(ProductsRepo(productsService: getIt()));
+
+
   
 }
