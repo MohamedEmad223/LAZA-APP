@@ -7,7 +7,8 @@ import 'package:laza_app/feature/home/data/repo/products_repo.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit({required this.productsRepo}) : super(ProductsInitial());
+  HomeCubit({required this.productsRepo})
+    : super(ProductsInitial());
 
   ProductsRepo productsRepo;
 
@@ -24,4 +25,5 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
+  
 }

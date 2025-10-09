@@ -1,8 +1,6 @@
 part of 'home_cubit.dart';
 
-
 sealed class HomeState {}
-
 
 final class ProductsInitial extends HomeState {}
 
@@ -19,7 +17,5 @@ final class ProductsFailure extends HomeState {
 
   ProductsFailure(this.error);
 }
-
-
 
 

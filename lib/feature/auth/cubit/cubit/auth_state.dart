@@ -6,7 +6,11 @@ final class LoginInitial extends AuthState {}
 
 final class LoginLoading extends AuthState {}
 
-final class LoginSuccess extends AuthState {}
+final class LoginSuccess extends AuthState {
+  final LoginResponseModel loginResponseModel;
+
+  LoginSuccess({required this.loginResponseModel});
+}
 
 final class LoginFailure extends AuthState {
   final ApiErrorModel error;
@@ -41,5 +45,3 @@ final class VerifyEmailFailure extends AuthState {
 
   VerifyEmailFailure(this.error);
 }
-
-

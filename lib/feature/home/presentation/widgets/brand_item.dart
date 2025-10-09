@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:laza_app/feature/home/data/model/categories_response_model.dart';
 
 class BrandItem extends StatelessWidget {
-  final String image;
-  final String name;
-  const BrandItem({super.key, required this.image, required this.name});
+  const BrandItem({super.key, required this.categories});
+
+  final Category categories;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +18,16 @@ class BrandItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(image, height: 24),
+          CachedNetworkImage(
+            imageUrl: categories.coverPictureUrl,
+            placeholder: (context, url) => CircularProgressIndicator(),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
           const SizedBox(width: 6),
-          Text(name, style: const TextStyle(fontWeight: FontWeight.w500)),
+          Text(
+            categories.name,
+            style: const TextStyle(fontWeight: FontWeight.w500),
+          ),
         ],
       ),
     );

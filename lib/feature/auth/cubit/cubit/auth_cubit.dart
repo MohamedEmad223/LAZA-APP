@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laza_app/core/network/api_error_model.dart';
 import 'package:laza_app/feature/auth/data/models/login_body_model.dart';
+import 'package:laza_app/feature/auth/data/models/login_response_model.dart';
 import 'package:laza_app/feature/auth/data/models/signup_body_model.dart';
 import 'package:laza_app/feature/auth/data/models/signup_response_model.dart';
 import 'package:laza_app/feature/auth/data/models/verify_email_body_model.dart';
@@ -22,7 +23,9 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await loginRepository.login(loginBody);
     result.when(
       onSuccess: (message) {
-        emit(LoginSuccess());
+        emit(LoginSuccess(
+          loginResponseModel: message
+        ));
       },
       onError: (error) {
         emit(LoginFailure(error));

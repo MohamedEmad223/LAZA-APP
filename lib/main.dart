@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:laza_app/config/cache/cache_helper.dart';
 import 'package:laza_app/core/di/di.dart';
@@ -9,6 +10,3 @@ void main() {
   CacheHelper.init();
   runApp(const LazaApp());
 }
-
-
-
