@@ -1,16 +1,51 @@
-# laza_app
+# Laza App API & Project Overview
 
-A new Flutter project.
+This is a Flutter application that uses **Dio** for API communication. It supports user authentication, email verification, and fetching products and categories.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🔗 API Endpoints
 
-A few resources to get you started if this is your first Flutter project:
+### 1. Authentication
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Endpoint | Method | Body | Description |
+|----------|--------|------|-------------|
+| `/auth/signup` | POST | `{ "name": "string", "email": "string", "password": "string" }` | Register a new account |
+| `/auth/login` | POST | `{ "email": "string", "password": "string" }` | Login user |
+| `/auth/verify-email` | POST | `{ "email": "string", "otp": "string" }` | Verify email using OTP |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 2. Products
+
+| Endpoint | Method | Body | Description |
+|----------|--------|------|-------------|
+| `/products` | GET | - | Get list of products |
+| `/categories` | GET | - | Get list of categories |
+
+---
+
+## ⚡ Features
+
+- User Sign Up
+- User Login
+- Email Verification
+- Display Products and Categories
+
+---
+
+## 📸 Screen Shots 
+<img width="1080" height="2400" alt="Screenshot_1760013908" src="https://github.com/user-attachments/assets/82c74d5c-472f-4fac-9f67-907f69d160f1" />
+<img width="1080" height="2400" alt="Screenshot_1760013835" src="https://github.com/user-attachments/assets/a8e3ab58-763d-4646-8477-b1d9eda5e65e" />
+<img width="1080" height="2400" alt="Screenshot_1760013833" src="https://github.com/user-attachments/assets/f92ba69a-aadc-4929-adf4-c89f0cc79ebc" />
+<img width="1080" height="2400" alt="Screenshot_1760013831" src="https://github.com/user-attachments/assets/e31c7144-c972-4cc4-aacf-73da5337a4e6" />
+<img width="1080" height="2400" alt="Screenshot_1760013820" src="https://github.com/user-attachments/assets/96eff90c-25b2-499c-a353-2907a6721d5f" />
+
+
+
+---
+
+## 📂 Clone & Setup
+
+1. Clone the project:
+
+```bash
+git clone https://github.com/username/laza_app.git
